@@ -74,9 +74,3 @@ describe('POST /quizme/signup', () => {
     expect(response.body.error).toBe('Username already exists');
   });
 });
-
-/*
-curl -X POST http://localhost:5000/quizme/signup \
--H "Content-Type: application/json" \
--d '{"username": "testUser444", "password": "testPass123", "confirm_password": "testPass123"}'
-*/

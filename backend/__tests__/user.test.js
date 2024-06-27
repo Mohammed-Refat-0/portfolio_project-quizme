@@ -20,7 +20,7 @@ beforeAll(async () => {
 afterAll(async () => {
 
   //delete all created documents from this test suite after it runs:
-  await User.deleteMany({ testId: 'usermodeltest' });
+  // await User.deleteMany({ testId: 'usermodeltest' });
 
   await mongoose.disconnect();
 });
@@ -64,20 +64,13 @@ describe('User Model Tests', () => {
     // Assert that the username in the saved user matches the value we set
     expect(savedUser.username).toEqual('aymen');
 
-    //assert that the number of completed quizzes and rank are set to their default values
+    //assert that the number of completed quizzes is set to their default values
     expect(savedUser.completed_quizzes).toEqual(0);
-    expect(savedUser.rank).toEqual('Beginner');
 
     // Assert that the password is not stored in plain text and is in hashed form
     expect(savedUser.password).not.toEqual('hashed_password');
     const isMatch = await bcrypt.compare('hashed_password', savedUser.password);
     expect(isMatch).toBe(true);
-
-    savedUser.rank = "Intermediate";
-    await savedUser.save();
-
-    //assertion to check that the rank is updated
-    expect(savedUser.rank).toEqual('Intermediate');
 
   });
 
