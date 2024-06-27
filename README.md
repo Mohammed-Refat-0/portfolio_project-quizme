@@ -4,37 +4,37 @@
 QuizMe is a dynamic and engaging quiz platform built using the MERN stack, allowing users to compete, test their knowledge, and track their progress.
 
 ## Features:
-Engaging Quiz Taking: Participate in quizzes with various customizable settings (category, difficulty, number of questions). /n 
-Competitive Leaderboards: Track your performance against other players and strive for the top spot. /n
-Detailed Past Quizzes: Review your past attempts, analyze questions and answers, and identify areas for improvement. /n
-Secure Account Management: Create a user account, sign in/out seamlessly, and manage your profile information. /n
+Engaging Quiz Taking: Participate in quizzes with various customizable settings (category, difficulty, number of questions).\
+Competitive Leaderboards: Track your performance against other players and strive for the top spot.\
+Detailed Past Quizzes: Review your past attempts, analyze questions and answers, and identify areas for improvement.\
+Secure Account Management: Create a user account, sign in/out seamlessly, and manage your profile information.\
 
 ## Technologies Used:
-Frontend: React
-Backend: Node.js, Express
-Database: MongoDB (Atlas)
-Frontend Libraries/Frameworks: Bootstrap
-API: Open Trivia DB
-Client-Side Networking: Axios
-Database Modeling: Mongoose
+Frontend: React\
+Backend: Node.js, Express\
+Database: MongoDB (Atlas)\
+Frontend Libraries/Frameworks: Bootstrap\
+API: Open Trivia DB\
+Client-Side Networking: Axios\
+Database Modeling: Mongoose\
 
 ## implementation Details
 ### Backend
-Database: MongoDB Atlas, utilizing three collections: \n
-Users: Contains fields for name, hashed password, leaderboard score, and number of completed quizzes. \n
-Quizzes: Stores quiz metadata including ID, number of questions, category, difficulty, and arrays of fetched questions with user answers and correct answers. \n
-Sessions: Securely stores session data. \n
-Server: Built with Express.js, handling backend operations and API integration with the database. \n
+Database: MongoDB Atlas, utilizing three collections: \
+Users: Contains fields for name, hashed password, leaderboard score, and number of completed quizzes. \
+Quizzes: Stores quiz metadata including ID, number of questions, category, difficulty, and arrays of fetched questions with user answers and correct answers. \
+Sessions: Securely stores session data. \
+Server: Built with Express.js, handling backend operations and API integration with the database. \
 ### Routes:
-/quizme/signup: User registration. /n
-/quizme/signin: User login. /n
-/quizme/signout: User logout. /n
-/quizme/delete: Account deletion./n
-/quizme/past_quizzes: Displays past quizzes sorted by criteria./n
-/quizme/leaderboard: Shows the leaderboard./n
-/quizme/fetch_quiz: Fetches a quiz based on parameters (amount, category, difficulty)./n
-/quizme/save_quiz: Saves a user's quiz attempt./n
-/quizme/current_user: Retrieves the currently authenticated user's information./n
+/quizme/signup: User registration. \
+/quizme/signin: User login. \
+/quizme/signout: User logout. \
+/quizme/delete: Account deletion.\
+/quizme/past_quizzes: Displays past quizzes sorted by criteria.\
+/quizme/leaderboard: Shows the leaderboard.\
+/quizme/fetch_quiz: Fetches a quiz based on parameters (amount, category, difficulty).\
+/quizme/save_quiz: Saves a user's quiz attempt.\
+/quizme/current_user: Retrieves the currently authenticated user's information.\
 ### Frontend
 React: Used to build the frontend components, including pages for the homepage, quiz taking, leaderboard, past quizzes, delete account, and sign in/out/up functionalities.
 
@@ -62,4 +62,4 @@ While this project is not currently open for external contributions, feel free t
  MIT License
 
 ## Author:
-Mohammed Refat:[https://github.com/Mohammed-Refat-0]
+[Mohammed Refat(https://github.com/Mohammed-Refat-0)]
