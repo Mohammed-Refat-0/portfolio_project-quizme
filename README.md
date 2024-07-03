@@ -52,6 +52,7 @@ quizme/
 │   ├── app.js      // Main React application entry point
 │   ├── index.js    // Initial setup for React app
 │   └── ...        // Other frontend-related files
+├── landing_page.html
 └── package.json  // Project dependencies and scripts
 
 ## Contributing:
