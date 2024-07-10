@@ -1,8 +1,9 @@
 # QuizMe: A Competitive Quiz-Taking Website
 
 ## Description:
-QuizMe is a dynamic and engaging quiz platform built using the MERN stack, allowing users to compete, test their knowledge, and track their progress.
-[landing page](https://vsvdsdv.my.canva.site/landingpage)
+QuizMe is a dynamic and engaging quiz platform built using the MERN stack, allowing users to compete, test their knowledge, and track their progress. \
+[Go to website] (https://www.mohammedshehata.tech)\
+[Go to landing page](https://vsvdsdv.my.canva.site/landingpage)
 
 ## Features:
 Engaging Quiz Taking: Participate in quizzes with various customizable settings (category, difficulty, number of questions).\
