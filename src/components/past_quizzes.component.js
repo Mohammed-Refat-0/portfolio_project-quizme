@@ -1,3 +1,5 @@
+//past quizzes page react component 
+
 import React, { useState } from 'react';
 import axios from 'axios';
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -18,12 +20,11 @@ function PastQuizzes() {
   const fetchQuizzes = async () => {
     try {
       const response = await axios.get(`${apiUrl}/quizme/past_quizzes?sort_by=${sortOption}`);
-      // Adjusted to check if response.data.data is an array before setting the state
       if (Array.isArray(response.data.data)) {
-        setQuizzes(response.data.data); // Use the nested data array
+        setQuizzes(response.data.data);
       } else {
         console.error('Expected an array but received:', response.data.data);
-        setQuizzes([]); // Set to empty array or handle as needed
+        setQuizzes([]);
       }
       setAlert({ ...alert, showAlert: false });
     } catch (err) {

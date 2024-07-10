@@ -1,12 +1,13 @@
+//user mongodb schema
+
 // import bcrypt, mongoose
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt'); 
 
 const Schema = mongoose.Schema;
 
-// Create a new schema for the user
+// Create schema for the user
 const userSchema = new Schema({
-  //_id: mongoose.Schema.Types.ObjectId, //caused error if explicity defined
     username: {
     type: String,
     required: true,
@@ -25,10 +26,6 @@ const userSchema = new Schema({
     default: 0
   },
   leaderboardScore: {
-    type: Number,
-    default: 0
-  },
-  rank: {
     type: Number,
     default: 0
   }

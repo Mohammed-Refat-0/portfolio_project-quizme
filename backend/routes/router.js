@@ -1,7 +1,8 @@
+//API defined routes file
+
 const bcrypt = require('bcrypt'); 
 const router = require('express').Router();
 const fetch = require('node-fetch');
-
 const User = require('../models/users.model');
 const Quiz = require('../models/quizzes.model');
 const quiz = require('../models/quizzes.model');
@@ -95,7 +96,7 @@ router.route('/signin').post(async (req, res) => {
     }
 });
 
-
+// **signout Route (POST /quizme/signout)**
 router.route('/signout').post((req, res) => {
   if (!req.session.userId) {
       return res.status(400).json({ error: 'User is not signed in' });
@@ -109,21 +110,6 @@ router.route('/signout').post((req, res) => {
       res.json({ message: 'User signed out successfully' });
   });
 });
-
-/*
-// **signout Route (POST /quizme/signout)**
-router.route('/signout').post((req,res) => {
-    try {
-        if (!req.session.userId) {
-            return res.status(400).json({ error: 'User is not signed in' });
-        }
-        req.session.destroy();
-        res.json({ message: 'User signed out successfully' });
-    } catch (err) {
-        console.error('Error signing out:', err);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-}); */
 
 // **Delete User account (DELETE /quizme/deleteaccount)**
 router.delete('/deleteaccount', async (req, res) => {
@@ -162,7 +148,7 @@ router.delete('/deleteaccount', async (req, res) => {
 });
 
 
-// **get past quizzes of user Route (POST /quizme/pastquizzes)**
+// **Get past quizzes of user Route (POST /quizme/pastquizzes)**
 router.get('/past_quizzes', async (req, res) => {
   try {
     if (!req.session.userId) {
@@ -170,7 +156,6 @@ router.get('/past_quizzes', async (req, res) => {
     }
 
     const sort_by = req.query.sort_by;
-    //console.log(req.session.userId)
     // Define default sort option
     let sortOptions = { createdAt: -1 };
 
@@ -202,7 +187,7 @@ router.get('/past_quizzes', async (req, res) => {
 });
 
 
-// **get leaderboard Route (GET /quizme/leaderboard)**
+// **Get leaderboard Route (GET /quizme/leaderboard)**
 router.get('/leaderboard', async (req, res) => {
   try {
     // Fetch the top ten users for the leaderboard
@@ -380,7 +365,6 @@ async function updateLeaderboardScore(user, newQuiz) {
     const weightedAverageScore = updatedAverageScore * 0.4;
 
     user.leaderboardScore = (weightedTotalQuizzes + weightedHighScoreQuizzes + weightedAverageScore).toFixed(2);
-    //console.log(user.leaderboardScore);
     await user.save();
   } catch (error) {
     console.error('Error fetching quizzes:', error);

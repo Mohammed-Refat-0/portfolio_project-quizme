@@ -1,20 +1,21 @@
 // Test suite for the signup route using Jest and Supertest
+
 const request = require('supertest');
-const app = require('../server'); // Adjust the path as necessary
+const app = require('../server'); 
 const mongoose = require('mongoose');
-const User = require('../models/users.model'); // Adjust the path as necessary
+const User = require('../models/users.model');
 require('dotenv').config();
 
 // Setup connection to the test database
 beforeAll(async () => {
-  const uri = process.env.ATLAS_URI; // Ensure you have a separate test database URI
+  const uri = process.env.ATLAS_URI;
   await mongoose.connect(uri);
 });
 
 //Cleanup: delete all users after each test to ensure isolation
-//afterEach(async () => {
-  //await User.deleteMany({});
-//});
+afterEach(async () => {
+  await User.deleteMany({});
+});
 
 // Disconnect from the database after all tests have run
 afterAll(async () => {
@@ -64,7 +65,6 @@ describe('POST /quizme/signup', () => {
   });
 
   test('It should respond with 400 if the username already exists', async () => {
-    // Create a user to test duplication
     await new User({ username: 'newusergfgg', password: 'password', confirm_password: 'password' }).save();
 
     const response = await request(app)

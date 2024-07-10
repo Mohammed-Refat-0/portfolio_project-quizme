@@ -1,3 +1,5 @@
+//leaderboard page react component 
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -16,7 +18,7 @@ const Leaderboard = () => {
       const response = await axios.get(`${apiUrl}/quizme/leaderboard`);
       const data = response.data;
       if (data.success) {
-        setLeaderboard(data.leaderboard); // Adjusted to match the updated backend response
+        setLeaderboard(data.leaderboard); 
         if (data.currentUser) {
           setCurrentUser(data.currentUser);
           setShowCurrentUserPanel(true); // Show the panel if currentUser is not null
@@ -46,13 +48,13 @@ const Leaderboard = () => {
       fontWeight: 'bold',
     },
     currentUserPanel: {
-      padding: '5px', // Adjust padding as needed
-      margin: '20px 0', // Adds margin above and below the panel
-      border: '1px solid #ccc', // Adds a border around the panel
-      maxWidth: '400px', // Decreases the width of the current user panel
-      maxHeight: '200px', // Decrease height to make it less tall
-      overflow: 'auto', // Add overflow auto to handle content that might exceed the container size
-      background: '#f9f9f9', // Sets a background color for the panel
+      padding: '5px',
+      margin: '20px 0',
+      border: '1px solid #ccc',
+      maxWidth: '400px',
+      maxHeight: '200px',
+      overflow: 'auto',
+      background: '#f9f9f9',
     }
   };
   return (
@@ -89,4 +91,5 @@ const Leaderboard = () => {
     </div>
   );
 }
+
 export default Leaderboard;

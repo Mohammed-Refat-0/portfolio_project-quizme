@@ -1,3 +1,5 @@
+//homepage page react component 
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +10,7 @@ function HomePage() {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'flex-start', // Changed from 'center' to 'flex-start'
+    justifyContent: 'flex-start',
     height: '100vh',
     textAlign: 'center',
     marginTop: '22vh',
@@ -30,7 +32,6 @@ function HomePage() {
     transition: 'color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out', // Transition for hover effects
   };
   
-  // Adjusted return statement in HomePage component with inline styled NavigateButton
   return (
     <div style={homepageContainerStyle}>
       <h1>Welcome to QuizMe!</h1>

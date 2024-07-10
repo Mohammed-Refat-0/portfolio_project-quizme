@@ -1,3 +1,5 @@
+//signup page react component 
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -53,7 +55,7 @@ function Signup() {
         });
         signUp();
         setTimeout(() => {
-          navigate('/'); // Redirect to home page using navigate
+          navigate('/');
         }, 3000);
       })
       .catch(err => {

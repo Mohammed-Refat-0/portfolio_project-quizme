@@ -1,4 +1,4 @@
-//test suite for user schema 
+//Test suite for user schema 
 
 const mongoose = require('mongoose'); // Import Mongoose for interacting with MongoDB
 const bcrypt = require('bcrypt'); // Import bcrypt to use for comparing the hashed password
@@ -19,8 +19,7 @@ beforeAll(async () => {
 // runs after all tests in this suite to disconnect form the MongoDB database
 afterAll(async () => {
 
-  //delete all created documents from this test suite after it runs:
-  // await User.deleteMany({ testId: 'usermodeltest' });
+   await User.deleteMany({ testId: 'usermodeltest' });
 
   await mongoose.disconnect();
 });
@@ -28,22 +27,22 @@ afterAll(async () => {
 // Test suite for the User creation and saving
 describe('User Model Tests', () => {
   it('creates and saves a new user successfully', async () => {
-    // Create a new user object with username, and password (replace with hashed password)
+    // Create a new user object with username, and password
     const user = new User({
       username: 'aymen',
-      password: 'hashed_password', // Replace with a hashed password using bcrypt
+      password: 'hashed_password',
       leaderboardscore: 0
     });
 
     const user2 = new User({
       username: 'omar',
-      password: 'hashed_password', // Replace with a hashed password using bcrypt
+      password: 'hashed_password',
       leaderboardscore: 5
     });
 
     const user3 = new User({
       username: 'kora',
-      password: 'hashed_password', // Replace with a hashed password using bcrypt
+      password: 'hashed_password',
       leaderboardscore: 3
     });
 
@@ -74,7 +73,7 @@ describe('User Model Tests', () => {
 
   });
 
-  // Add test case to check that a empty user object is not saved
+  // Test case to check that a empty user object is not saved
     it('create user without required field should fail', async () => {
         const user = new User();
     
@@ -86,7 +85,7 @@ describe('User Model Tests', () => {
         });
     });
 
-    // Add test case to check that a user with duplicate username is not saved
+    // Test case to check that a user with duplicate username is not saved
     it('should not allow duplicate usernames', async () => {
         // Create the first user with a specific username
         const user1 = new User({
@@ -108,10 +107,7 @@ describe('User Model Tests', () => {
         await user2.save()
         .then(() => fail('Expected a duplicate key error but did not get one.'))
         .catch(error => {
-          // Instead of checking the instance, check the error code and optionally the message
           expect(error.code).toEqual(11000);
-          // Optionally check if the message contains expected text indicating a duplicate key error
-          // This is a more flexible approach, as it doesn't rely on the error being an exact instance of MongoServerError
           expect(error.message).toMatch(/duplicate key error/);
           });
       });

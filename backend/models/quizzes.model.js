@@ -1,15 +1,13 @@
-//import the mongoose package
-const mongoose = require('mongoose');
+//quiz mongodb schema
 
-//import the Schema class from mongoose
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose'); //import the mongoose package
+const Schema = mongoose.Schema; //import the Schema class from mongoose
 
-//create a new schema for the quiz
+//create schema for the quiz
 const quizSchema = new Schema({
-  //_id: mongoose.Schema.Types.ObjectId,
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'user', default: null},
   amount: { type: Number, required: true }, //num of questions
-  category: { type: String, default: null /*any category*/  },
+  category: { type: String, default: null},
   difficulty: { type: String, default: null },  
   type: { type: String, default: null},        
   questions: [{

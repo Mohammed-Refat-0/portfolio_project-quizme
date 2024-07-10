@@ -1,3 +1,5 @@
+//quiz page react component 
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +12,7 @@ const Quiz = () => {
     showAlert: false,
     alertMessage: '',
     alertType: '',
-    showOptions: true, // Control select visibility
+    showOptions: true,
   });
   const [quiz_state, setQuizState] = useState({
     quizSubmitted: false,
@@ -26,7 +28,7 @@ const Quiz = () => {
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [userAnswers, setUserAnswers] = useState(new Array(questions.length)); // Initialize with empty slots for each question
 
-  // New state variable to control the visibility of the quiz interface
+  // state variable to control the visibility of the quiz interface
   const [showQuizInterface, setShowQuizInterface] = useState(true);
 
   const handleOptionChange = (e) => {

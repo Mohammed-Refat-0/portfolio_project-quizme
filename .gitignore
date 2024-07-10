@@ -11,7 +11,6 @@
 # production
 /build
 ecosystem.config.cjs
-
 /backend/.env
 
 # misc

@@ -1,3 +1,5 @@
+//Test suite for quiz schema 
+
 const mongoose = require('mongoose'); // Import Mongooge
 const Quiz = require('../models/quizzes.model'); // import quiz model
 const User = require('../models/users.model'); //import the User model
@@ -10,17 +12,13 @@ const uri = process.env.ATLAS_URI;
 
 // function runs before all tests in this suite
 beforeAll(async () => {
-  // Connect to the MongoDB database using the connection string
   await mongoose.connect(uri);
 });
 
-// This function runs after all tests in this suite
+// function runs after all tests in this suite
 afterAll(async () => {
 
-  //add a line to delete all craeated data from this suite after it finshes:
   await Quiz.deleteMany({ testId: 'quizmodeltest' });
-
-  // Disconnect from the MongoDB database
   await mongoose.disconnect();
 });
 
@@ -40,7 +38,7 @@ describe('Quiz Model Tests', () => {
       difficulty: 'Medium',
       type: 'Multiple Choice',
       questions: [
-        // Define dummy question here with the quiz schema:
+        //Dummy question with the quiz schema:
         {
           question: 'What is the capital of France?',
           correct_answer: 'Paris',
@@ -54,20 +52,19 @@ describe('Quiz Model Tests', () => {
           incorrect_answers: ['Paris', 'London', 'Berlin']
         },
       ],
-      score: 8 // Dummy score (replace with calculated score)
+      score: 8
     });
 
     // Save the new quiz to the database
     await quiz.save();
 
     const quiz2 = new Quiz({
-      userId: user._id, // Reference the saved user's ID
+      userId: user._id, 
       amount: 2,
       category: 'Art',
       difficulty: 'Medium',
       type: 'Multiple Choice',
       questions: [
-        // Define dummy question here with the quiz schema:
         {
           question: 'What was the name of ancient egypt?',
           correct_answer: 'kemt',
@@ -81,10 +78,9 @@ describe('Quiz Model Tests', () => {
           incorrect_answers: ['Paris', 'London', 'Berlin']
         },
       ],
-      score: 8 // Dummy score (replace with calculated score)
+      score: 8
     });
 
-    // Save the new quiz to the database
     await quiz2.save();
 
     // Find the saved quiz by its ID
@@ -96,11 +92,10 @@ describe('Quiz Model Tests', () => {
     // Assert that the number of questions in the saved quiz matches the value we set
     expect(savedQuiz.amount).toEqual(2);
 
-    // Add asseration to check that the second quettion user_answer and iscorrect is default:
+    // Asserations to check that the second quettion user_answer and iscorrect is default:
     expect(savedQuiz.questions[1].user_answer).toBeNull();
     expect(savedQuiz.questions[1].isCorrect).toBe(false);
 
-    //add user_answer, save , and assert that it is not null:
     savedQuiz.questions[1].user_answer = 'Berlin';
     await savedQuiz.save();
     expect(savedQuiz.questions[1].user_answer).toEqual('Berlin');
@@ -109,7 +104,6 @@ describe('Quiz Model Tests', () => {
     expect(user._id).not.toEqual(savedQuiz._id);
   });
 
-  // Add a test case to save a quiz without a user:
     it('creates and saves a new quiz without a user', async () => {
         // Create a new Quiz object without a user ID
         const quiz = new Quiz({
@@ -119,10 +113,9 @@ describe('Quiz Model Tests', () => {
         questions: [
             //
         ],
-        overallScore: 5 // Dummy score (replace with calculated score)
+        overallScore: 5
         });
     
-        // Save the new quiz to the database
         await quiz.save();
     
         // Find the saved quiz by its ID

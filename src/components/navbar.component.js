@@ -1,10 +1,12 @@
+//navigation bar react component 
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../AuthContext.js';
 
 const Navbar = () => {
   const [collapsed, setCollapsed] = useState(true);
-  const { isAuthenticated } = useAuth(); // Now it's correctly used within a functional component
+  const { isAuthenticated } = useAuth();
 
   const toggleNavbar = () => {
     setCollapsed(!collapsed);
@@ -13,8 +15,6 @@ const Navbar = () => {
   const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
   const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
 
-  // Use `isAuthenticated` to conditionally render parts of your UI here
-  // Example: {isAuthenticated ? <Link to="/logout">Logout</Link> : <Link to="/login">Login</Link>}
     return (
       <nav className="navbar navbar-dark navbar-expand-lg custom-navbar-bg">
         <Link to="/" className="navbar-brand">Quiz me</Link>
@@ -50,4 +50,5 @@ const Navbar = () => {
       </nav>
     );
   }
+  
   export default Navbar;

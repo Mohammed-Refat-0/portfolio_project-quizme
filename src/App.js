@@ -1,6 +1,5 @@
-//import logo from './logo.svg';
 import React from 'react';
-import axios from 'axios'; // Import axios correctly
+import axios from 'axios'; 
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -15,8 +14,8 @@ import PastQuizzes from "./components/past_quizzes.component.js";
 import Leaderboard from "./components/leaderboard.component.js";
 import Delete from './components/delete_account.component.js';
 
-// Set withCredentials globally for every request to handle cookies
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true; // Set withCredentials globally for every request to handle cookies
+
 
 function App() {
   return (
