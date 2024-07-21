@@ -1,8 +1,8 @@
 # QuizMe: A Competitive Quiz-Taking Website
 
 ## Description:
-[YouTube video demo](https://youtu.be/w0oxf6ZKisI) \
 QuizMe is a dynamic and engaging quiz platform built using the MERN stack, allowing users to compete, test their knowledge, and track their progress. \
+[YouTube video demo](https://youtu.be/w0oxf6ZKisI) \
 [Go to website](https://www.mohammedshehata.tech) \
 [Go to landing page](https://vsvdsdv.my.canva.site/landingpage)
 
